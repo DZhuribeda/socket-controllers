@@ -8,7 +8,7 @@ export function importClassesFromDirectories(directories: string[], formats = ['
   const loadFileClasses = function (exported: any, allLoaded: Function[]) {
     if (exported instanceof Function) {
       allLoaded.push(exported);
-    } else if (exported instanceof Object) {
+    } else if (exported instanceof Object || typeof exported === 'object') {
       Object.keys(exported).forEach(key => loadFileClasses(exported[key], allLoaded));
     } else if (exported instanceof Array) {
       exported.forEach((i: any) => loadFileClasses(i, allLoaded));
