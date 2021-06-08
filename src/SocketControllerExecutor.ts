@@ -149,7 +149,7 @@ export class SocketControllerExecutor {
           const params: any[] = this.handleNamespaceParams(options.socket, action, param);
           return params[param.value];
         } else if (param.type === ParamTypes.NAMESPACED_IO) {
-          return this.io.of(options.socket.nsp);
+          return this.io.of(options.socket.nsp.name);
         } else {
           return this.handleParam(param, options);
         }
