@@ -11,7 +11,8 @@ export type ParamType =
   | 'socket-request'
   | 'socket-rooms'
   | 'namespace-params'
-  | 'namespace-param';
+  | 'namespace-param'
+  | 'namespaced-io';
 
 /**
  * Controller action's parameter type.
@@ -27,4 +28,5 @@ export class ParamTypes {
   static SOCKET_ROOMS: ParamType = 'socket-rooms';
   static NAMESPACE_PARAMS: ParamType = 'namespace-params';
   static NAMESPACE_PARAM: ParamType = 'namespace-param';
+  static NAMESPACED_IO: ParamType = 'namespaced-io';
 }

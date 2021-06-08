@@ -290,3 +290,20 @@ export function SkipEmitOnEmptyResult(): Function {
     defaultMetadataArgsStorage().results.push(metadata);
   };
 }
+
+/**
+ * Injects socket.io object that initialized a connection namespaced to current conntroller namespace.
+ */
+export function NamespacedIO() {
+  return function (object: Object, methodName: string, index: number) {
+    const format = (Reflect as any).getMetadata('design:paramtypes', object, methodName)[index];
+    const metadata: ParamMetadataArgs = {
+      target: object.constructor,
+      method: methodName,
+      index: index,
+      type: ParamTypes.NAMESPACED_IO,
+      reflectedType: format,
+    };
+    defaultMetadataArgsStorage().params.push(metadata);
+  };
+}
